@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+    server:
+        build:
+            context: server
+        container_name: server
+        ports:
+            - "8081:8081"
+        networks:
+            - test
+    client:
+        build:
+            context: client
+        container_name: client
+        ports:
+            - "8080:80"
+        networks:
+            - test
+networks:
+    test:
+        driver: bridge
